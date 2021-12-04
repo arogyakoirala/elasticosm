@@ -6,10 +6,11 @@ package com.arogyak.pg2es.repository;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
+import com.arogyak.pg2es.model.NominatimPlace;
 import com.arogyak.pg2es.model.Place;
 
 //@Repository
-public interface PlaceRepository extends ElasticsearchRepository<Place, Long> {
+public interface PlaceRepository extends ElasticsearchRepository<NominatimPlace, Long> {
 	/**
 	 * @param osmId OSM ID of the place.
 	 * @return {@link Place}

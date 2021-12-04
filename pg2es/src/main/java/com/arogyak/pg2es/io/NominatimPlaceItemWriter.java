@@ -6,6 +6,7 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.arogyak.pg2es.model.NominatimPlace;
 import com.arogyak.pg2es.model.Place;
 import com.arogyak.pg2es.repository.PlaceRepository;
 
@@ -17,7 +18,7 @@ import com.arogyak.pg2es.repository.PlaceRepository;
  *
  */
 @Component
-public class PlaceItemWriter implements ItemWriter<Place> {
+public class NominatimPlaceItemWriter implements ItemWriter<NominatimPlace> {
 
 	@Autowired
 	private PlaceRepository placeRepository;
@@ -27,12 +28,9 @@ public class PlaceItemWriter implements ItemWriter<Place> {
 	 * @throws Exception
 	 */
 	@Override
-	public void write(List<? extends Place> items) throws Exception {
+	public void write(List<? extends NominatimPlace> items) throws Exception {
 		try {
-			for(Place p : items) {
-				System.out.println(p.getName());
-			}
-//			placeRepository.saveAll(items);
+			placeRepository.saveAll(items);
 		} catch (Exception e) {
 			throw e;
 		}

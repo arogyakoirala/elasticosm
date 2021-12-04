@@ -20,7 +20,7 @@ import org.springframework.data.elasticsearch.annotations.GeoPointField;
  * @author arogyakoirala
  *
  */
-@Document(indexName = "place", createIndex = true)
+@Document(indexName = "oldplace", createIndex = true)
 //@Setting(settingPath = "analyzer.json")
 public class Place {
 

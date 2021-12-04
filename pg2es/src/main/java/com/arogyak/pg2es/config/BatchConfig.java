@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.arogyak.pg2es.model.NominatimPlace;
 import com.arogyak.pg2es.model.Place;
 import com.arogyak.pg2es.tasklets.DeleteTasklet;
 
@@ -74,8 +75,8 @@ public class BatchConfig extends DefaultBatchConfigurer {
 	 * @return {@link Step}
 	 */
 	@Bean
-	public Step importPlaceStep(ItemReader<Place> placeItemReader, ItemWriter<Place> placeItemWriter) {
-		return stepBuilderFactory.get("importPlaceStep").<Place, Place>chunk(1000).reader(placeItemReader)
+	public Step importPlaceStep(ItemReader<NominatimPlace> placeItemReader, ItemWriter<NominatimPlace> placeItemWriter) {
+		return stepBuilderFactory.get("importPlaceStep").<NominatimPlace, NominatimPlace>chunk(1000).reader(placeItemReader)
 				.writer(placeItemWriter).build();
 	}
 
