@@ -1,21 +1,23 @@
 version: "3"
 services:
     nominatim:
-        image: "mediagis/nominatim:3.6"
+        image: "mediagis/nominatim:3.7"
         env_file: 
             - ./.env_nominatim
         ports:
             - "8081:8080"
             - "5431:5432"
-    # elastic:
-    #     image: "elasticsearch:7.14.2"
-    #     env_file: 
-    #         - ./.env_elastic
-    #     environment:
-    #         - "logger.level=WARN"
-    #     ports:
-    #         - 9200:9200
-    #         - 9300:9300
+    elastic:
+        image: "elasticsearch:7.14.2"
+        env_file: 
+            - ./.env_elastic
+        environment:
+            - "logger.level=WARN"
+        ports:
+            - 9200:9200
+            - 9300:9300
+        volumes:
+            - ./esdata:/usr/share/elasticsearch/data
     # client:
     #     container_name: client
     #     build:

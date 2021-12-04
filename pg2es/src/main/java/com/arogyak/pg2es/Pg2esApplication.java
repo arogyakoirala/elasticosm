@@ -15,16 +15,16 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication()
 public class Pg2esApplication {
 
-	public static void main(String[] args) throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
-		
+	public static void main(String[] args) throws JobExecutionAlreadyRunningException, JobRestartException,
+			JobInstanceAlreadyCompleteException, JobParametersInvalidException {
+
 		ApplicationContext ctx = SpringApplication.run(Pg2esApplication.class, args);
 
 		JobLauncher jobLauncher = (JobLauncher) ctx.getBean("jobLauncher");
-		
+
 		Job job2 = (Job) ctx.getBean("importJob");
 		jobLauncher.run(job2, new JobParameters());
 
-		System.out.println("Ooohala");
-		}
+	}
 
 }
