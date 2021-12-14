@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { api } from './index.api';
 import parseJson from 'parse-json';
-import { filterBasedOnConfig } from './utils';
+import { filterBasedOnConfig, preprocess } from './utils';
 
 const slice = createSlice({
   name: 'search',
@@ -56,7 +56,7 @@ export const {
   updateResults,
 } = slice.actions;
 
-export const fetchResults = (q, bounds) => async dispatch => { //eslint-disable-line
+export const fetchResults = (q, bounds, userCoords) => async dispatch => { //eslint-disable-line
   dispatch(startLoading());
   try {
     // await api
@@ -79,7 +79,9 @@ export const fetchResults = (q, bounds) => async dispatch => { //eslint-disable-
           ...bounds,
         },
       })
-      .then((response) => dispatch(searchSuccess(response.data)));
+      .then((response) =>
+        dispatch(searchSuccess(preprocess(response.data, userCoords)))
+      );
   } catch (e) {
     dispatch(hasError(e.message));
   }

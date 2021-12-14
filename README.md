@@ -77,6 +77,8 @@ This project would not have been possible without the following open source proj
 - BBBike's [OSM data extract for Berkeley](https://download.bbbike.org/osm/bbbike/Berkeley/)
 - [tonytw1/nominatim-ac](https://github.com/tonytw1/nominatim-ac) and their work on indexing the Nominatim DB to Elastic is the starting point for the code in the `pg2es` project.
 - All of the volunteer data contributors to the OpenStreetMap project, without whose sustained contributions, none of this would have been possible in the first place.
+- [@turf/turf](https://www.npmjs.com/package/@turf/turf)
+- [opening_hours](https://github.com/opening-hours/opening_hours.js)
 
 
 

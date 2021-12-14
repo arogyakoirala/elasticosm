@@ -16,7 +16,7 @@ function SearchBar({ onSearch, coords }) {
     <div>
       <Paper
         variant="outlined"
-        component="form"
+        // component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
       >
         <InputBase
@@ -30,7 +30,7 @@ function SearchBar({ onSearch, coords }) {
         <IconButton
           disabled={q == null || coords == null}
           onClick={() => {
-            onSearch(q);
+            onSearch(q, coords);
           }}
           sx={{ p: '10px' }}
           aria-label="search"

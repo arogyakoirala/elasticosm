@@ -152,11 +152,12 @@ public class NominatimPlaceItemReader extends JdbcCursorItemReader<NominatimPlac
 					place.setAmenitySubCategory(categorizations.get(1));
 				}
 				
-				if(place.getAmenitySubCategory() == null) {
-					place.setAmenitySubCategory(featureType);
-				}
-
 			}
+			
+			if(place.getAmenitySubCategory() == null) {
+				place.setAmenitySubCategory(featureClass+"|"+featureType);
+			}
+
 
 			@SuppressWarnings("unchecked")
 			Map<String, String> extraTags = (Map<String, String>) rs.getObject("extratags");

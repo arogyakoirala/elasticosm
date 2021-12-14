@@ -23,6 +23,7 @@ function FacetControl({ q, results, aggregations, onToggle, isLoading }) {
   });
 
   const [toggleStates, setToggleStates] = useState(initialState);
+  const [isFiltered, setFiltered] = useState(false);
 
   return (
     <div className="">
@@ -78,9 +79,19 @@ function FacetControl({ q, results, aggregations, onToggle, isLoading }) {
                               }
                             });
                           });
+
+                          if (Object.keys(filterConfig).length > 0) {
+                            setFiltered(true);
+                          } else {
+                            setFiltered(false);
+                          }
                           onToggle(filterConfig);
                         }}
-                        label={item.label + ' (' + item.value + ')'}
+                        label={
+                          isFiltered
+                            ? item.label
+                            : item.label + ' (' + item.value + ')'
+                        }
                       />
                     );
                   })}

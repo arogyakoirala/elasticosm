@@ -25,8 +25,8 @@ function SearchContainer() {
         style={{ maxHeight: '98vh', overflowY: 'scroll' }}
       >
         <SearchBar
-          onSearch={(q) => {
-            dispatch(fetchResults(q, bounds));
+          onSearch={(q, userCoords) => {
+            dispatch(fetchResults(q, bounds, userCoords));
           }}
         />
         <div>
