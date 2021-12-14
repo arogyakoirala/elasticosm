@@ -24,6 +24,7 @@ public class Config extends AbstractElasticsearchConfiguration {
 				.connectedTo("localhost:9200")
 				.build();
 
+
 		return RestClients
 				.create(clientConfiguration)
 				.rest();

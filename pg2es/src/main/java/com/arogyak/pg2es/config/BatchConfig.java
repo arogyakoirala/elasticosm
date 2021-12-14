@@ -18,7 +18,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.arogyak.pg2es.model.NominatimPlace;
-import com.arogyak.pg2es.model.Place;
 import com.arogyak.pg2es.tasklets.DeleteTasklet;
 
 

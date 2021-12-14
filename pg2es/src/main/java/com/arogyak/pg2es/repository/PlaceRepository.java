@@ -7,7 +7,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import org.springframework.stereotype.Repository;
 
 import com.arogyak.pg2es.model.NominatimPlace;
-import com.arogyak.pg2es.model.Place;
 
 //@Repository
 public interface PlaceRepository extends ElasticsearchRepository<NominatimPlace, Long> {
@@ -15,11 +14,11 @@ public interface PlaceRepository extends ElasticsearchRepository<NominatimPlace,
 	 * @param osmId OSM ID of the place.
 	 * @return {@link Place}
 	 */
-	public Place findByOsmId(String osmId);
+	public NominatimPlace findByOsmId(String osmId);
 //
 	/**
 	 * @param placeId Nominatim assigned Place ID of the place.
 	 * @return {@link Place}
 	 */
-	public Place findByPlaceId(String placeId);
+	public NominatimPlace findByPlaceId(String placeId);
 }

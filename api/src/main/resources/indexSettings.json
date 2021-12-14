@@ -1,0 +1,83 @@
+{
+	"max_ngram_diff": "50",
+	"analysis": {
+		"filter": {
+			"synonym": {
+				"type": "synonym",
+				"synonyms": [
+					"bar,pub",
+					"restaurant,cafe,fast food",
+					"achi, fast food, fastfood, Bar"
+				]
+			},
+			"shingle": {
+				"type": "shingle",
+				"min_shingle_size": 2,
+				"max_shingle_size": 3,
+				"output_unigrams": true
+			},
+			"e_ngram": {
+				"type": "edge_ngram",
+				"min_gram": 2,
+				"max_gram": 50,
+				"token_chars": [
+					"letter",
+					"digit"
+				]
+			},
+			"no_space": {
+				"type": "pattern_replace",
+				"pattern": " ",
+				"replacement": ""
+			},
+			"no_sp_char": {
+				"type": "pattern_replace",
+				"pattern": "[^A-Za-z\\s0-9]",
+				"replacement": ""
+			}
+		},
+		"analyzer": {
+			"synonym": {
+				"tokenizer": "whitespace",
+				"filter": [
+					"lowercase",
+					"synonym"
+				]
+			},
+			"stemmer": {
+				"tokenizer": "whitespace",
+				"filter": [
+					"porter_stem"
+				]
+			},
+			"e_ngram": {
+				"type": "custom",
+				"tokenizer": "standard",
+				"filter": [
+					"lowercase",
+					"no_sp_char",
+					"e_ngram"
+				]
+			},
+			"shingle": {
+				"type": "custom",
+				"tokenizer": "standard",
+				"filter": [
+					"lowercase",
+					"no_sp_char",
+					"shingle",
+					"no_space"
+				]
+			},
+			"search": {
+				"type": "custom",
+				"tokenizer": "standard",
+				"filter": [
+					"lowercase",
+					"asciifolding",
+					"no_sp_char"
+				]
+			}
+		}
+	}
+}

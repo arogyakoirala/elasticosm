@@ -1,1 +1,4 @@
-esdata/
+data-es/
+data-osm/
+*.xlsx
+*.csv

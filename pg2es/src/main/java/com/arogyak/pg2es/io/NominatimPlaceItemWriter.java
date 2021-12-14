@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.arogyak.pg2es.model.NominatimPlace;
-import com.arogyak.pg2es.model.Place;
 import com.arogyak.pg2es.repository.PlaceRepository;
 
 

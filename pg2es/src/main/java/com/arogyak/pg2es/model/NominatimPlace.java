@@ -5,15 +5,18 @@ import java.util.Map;
 
 import javax.persistence.Id;
 
-import org.codehaus.jettison.json.JSONObject;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.GeoPointField;
+import org.springframework.data.elasticsearch.annotations.MultiField;
+import org.springframework.data.elasticsearch.annotations.InnerField;
 import org.springframework.data.elasticsearch.annotations.Setting;
 
+
+
 @Document(indexName = "place", createIndex = true)
-@Setting(settingPath = "settings.json")
+@Setting(settingPath = "indexSettings.json")
 public class NominatimPlace {
 
 	@Id
@@ -43,12 +46,61 @@ public class NominatimPlace {
 	private Integer searchRank;
 	private String geometryType;
 	private Object geometry;
-	
+
 	@Field(type = FieldType.Object)
 	private Map<String, String> extraTags;
-	
+
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true),
+			@InnerField(suffix = "shingle", type = FieldType.Text, store = true, analyzer = "shingle", searchAnalyzer = "search"),
+			@InnerField(suffix = "engram", type = FieldType.Text, store = true, analyzer = "e_ngram", searchAnalyzer = "search") })
 	private String onlyName;
+	
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true),
+			@InnerField(suffix = "engram", type = FieldType.Text, store = true, analyzer = "e_ngram", searchAnalyzer = "search") })
 	private String onlyAddress;
+
+	private String amenityCategory;
+
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true),
+			@InnerField(suffix = "synonym", type = FieldType.Text, store = true, searchAnalyzer = "synonym"),
+			@InnerField(suffix = "stem", type = FieldType.Text, store = true, analyzer = "stemmer") })
+	private String amenitySubCategory;
+
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String openingHours;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String wheelChair;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String internetAccess;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String delivery;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String driveThrough;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String paymentOptions;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String takeaway;
+
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String cuisine;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String seating;
+	@MultiField(mainField = @Field(type = FieldType.Text, store = true), otherFields = {
+			@InnerField(suffix = "keyword", type = FieldType.Keyword, store = true) })
+	private String diet;
+	
 
 	public NominatimPlace() {
 		super();
@@ -222,5 +274,109 @@ public class NominatimPlace {
 	public void setOnlyAddress(String onlyAddress) {
 		this.onlyAddress = onlyAddress;
 	}
+
+	public String getAmenityCategory() {
+		return amenityCategory;
+	}
+
+	public void setAmenityCategory(String amenityCategory) {
+		this.amenityCategory = amenityCategory;
+	}
+
+	public String getAmenitySubCategory() {
+		return amenitySubCategory;
+	}
+
+	public void setAmenitySubCategory(String amenitySubCategory) {
+		this.amenitySubCategory = amenitySubCategory;
+	}
+
+	public String getOpeningHours() {
+		return openingHours;
+	}
+
+	public void setOpeningHours(String openingHours) {
+		this.openingHours = openingHours;
+	}
+
+	public String getWheelChair() {
+		return wheelChair;
+	}
+
+	public void setWheelChair(String wheelChair) {
+		this.wheelChair = wheelChair;
+	}
+
+	public String getInternetAccess() {
+		return internetAccess;
+	}
+
+	public void setInternetAccess(String internetAccess) {
+		this.internetAccess = internetAccess;
+	}
+	
+	
+
+	public String getPaymentOptions() {
+		return paymentOptions;
+	}
+
+	public void setPaymentOptions(String paymentOptions) {
+		this.paymentOptions = paymentOptions;
+	}
+
+	
+	
+	
+	public String getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
+
+	public String getDriveThrough() {
+		return driveThrough;
+	}
+
+	public void setDriveThrough(String driveThrough) {
+		this.driveThrough = driveThrough;
+	}
+
+	public String getTakeaway() {
+		return takeaway;
+	}
+
+	public void setTakeaway(String takeaway) {
+		this.takeaway = takeaway;
+	}
+
+	public String getCuisine() {
+		return cuisine;
+	}
+
+	public void setCuisine(String cuisine) {
+		this.cuisine = cuisine;
+	}
+
+	public String getSeating() {
+		return seating;
+	}
+
+	public void setSeating(String seating) {
+		this.seating = seating;
+	}
+
+	public String getDiet() {
+		return diet;
+	}
+
+	public void setDiet(String diet) {
+		this.diet = diet;
+	}
+	
+	
+	
 
 }
