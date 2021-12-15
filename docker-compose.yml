@@ -1,5 +1,19 @@
 version: "3"
 services:
+    https-portal:
+        image: steveltn/https-portal:1
+        ports:
+            - '80:80'
+            - '443:443'
+        links:
+            - wordpress
+        restart: always
+        environment:
+            DOMAINS: 'i202.arogyakoirala.com -> http://api:8080'
+            # STAGE: 'production' # Don't use production until staging works
+            # FORCE_RENEW: 'true'
+        volumes: 
+            - https-portal-data:/var/lib/https-portal
     elastic:
         image: "elasticsearch:7.14.2"
         env_file: 
@@ -33,8 +47,8 @@ services:
         volumes:
             - ./jars/api-0.0.1-SNAPSHOT.jar:/srv/api/app.jar
             - ./status:/srv/api/status
-        ports:
-            - "8080:8080"
+        # ports:
+        #     - "8080:8080"
     pg2es:
         build:
             context: ./pg2es
@@ -55,3 +69,5 @@ services:
             dockerfile: Dockerfile
         ports:
             - "8081:3000"
+volumes:
+    https-portal-data:

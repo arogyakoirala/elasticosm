@@ -1,0 +1,202 @@
+﻿building,yes,Private property,,0.77499773,LOW
+highway,residential,Streets / bus stops / parking,,95.17872381,HIGH
+building,house,Private property,,0.924458531,LOW
+highway,secondary,Streets / bus stops / parking,,99.80755773,HIGH
+highway,tertiary,Streets / bus stops / parking,,99.3431221,HIGH
+highway,bus_stop,Transit,Bus Stop,99.2746114,HIGH
+amenity,parking,Streets / bus stops / parking,Parking,7.189372232,LOW
+highway,primary,Streets / bus stops / parking,Primary road,99.85714286,HIGH
+place,house,Private property,House,7.253626813,LOW
+leisure,pitch,Recreation and leisure facilities,Pitch (Sport),9.415384615,LOW
+amenity,restaurant,Places to eat / drink,Restaurant,99.16074887,HIGH
+highway,motorway,Streets / bus stops / parking,Motorway,99.25428784,HIGH
+amenity,bench,Toilets / water fountains / and other necessities,Bench,1.088646967,LOW
+leisure,swimming_pool,Health and wellness facilities,Swimming Pool,4.028436019,LOW
+highway,service,Streets / bus stops / parking,Service road,100,HIGH
+man_made,pier,Public Infrastructure,Pier,11.38888889,LOW
+building,residential,Private property,Residential building,5.178907721,LOW
+building,apartments,Private property,Apartment building,18.79770992,LOW
+waterway,stream,Natural entities,Stream ,100,HIGH
+highway,unclassified,Streets / bus stops / parking,Road,72.58261934,MED
+leisure,park,Recreation and leisure facilities,Park,82.10818308,MED
+amenity,place_of_worship,Religious facilities,Place of Worship,90.83333333,HIGH
+building,detached,Private property,Detached building,2.560455192,LOW
+leisure,playground,Recreation and leisure facilities,Playground,7.46031746,LOW
+amenity,school,Educational facilities,School,95.66724437,HIGH
+highway,path,Streets / bus stops / parking,Path,100,HIGH
+highway,footway,Streets / bus stops / parking,Footway,100,HIGH
+amenity,cafe,Places to eat / drink,Café,98.14814815,HIGH
+building,commercial,Commercial entities,Commercial Building,21.23015873,LOW
+man_made,storage_tank,Public Infrastructure,Storage Tank,2.231237323,LOW
+leisure,picnic_table,Recreation and leisure facilities,Picnic Table,0.414078675,LOW
+amenity,fast_food,Places to eat / drink,Fast food,99.36034115,HIGH
+amenity,bicycle_parking,Streets / bus stops / parking,Bicycle Parking,1.495726496,LOW
+highway,cycleway,Streets / bus stops / parking,Cycleway,100,HIGH
+highway,track,Streets / bus stops / parking,Track Road,100,HIGH
+highway,motorway_junction,Streets / bus stops / parking,Road junction,71.62534435,MED
+railway,subway,Railway facilities,Subway Station,100,HIGH
+amenity,drinking_water,Toilets / water fountains / and other necessities,Water fountain,1.699716714,LOW
+building,retail,Shops,Retail building,7.826086957,LOW
+amenity,toilets,Toilets / water fountains / and other necessities,Toilets,5.988023952,LOW
+highway,trunk,Streets / bus stops / parking,Road,100,HIGH
+leisure,garden,Recreation and leisure facilities,Garden,29.48717949,LOW
+shop,convenience,Commercial entities,Convenience Store,89.41605839,MED
+tourism,picnic_site,Recreation and leisure facilities,Picnic site,26.19926199,LOW
+amenity,waste_basket,Toilets and other necessities,Waste basket,0,LOW
+tourism,artwork,Tourist attractions,Public artwork,74.80620155,MED
+landuse,grass,Recreation and leisure facilities,Park,100,HIGH
+amenity,post_box,Public Infrastructure,Post Box,40.8,LOW
+amenity,fuel,Commercial entities,Gas Station,84.73895582,MED
+highway,pedestrian,Streets / bus stops / parking,Road,55.70175439,MED
+amenity,bank,Commercial entities,Bank,98.64253394,HIGH
+shop,car_repair,Shops,Car Repair Shop,94.11764706,HIGH
+tourism,information,Tourist attractions,Tourist Information,35.68075117,LOW
+shop,hairdresser,Shops,Hair dresser,97.63033175,HIGH
+highway,steps,Streets / bus stops / parking,,100,HIGH
+building,school,Private property,School building,61.62162162,MED
+amenity,bar,Places to eat / drink,Bar,99.45355191,HIGH
+shop,clothes,Shops,Clothes Shop,97.02380952,HIGH
+amenity,bicycle_rental,Shops,Bike Rental,29.62962963,LOW
+shop,supermarket,Shops,Supermarket,98.71794872,HIGH
+amenity,fountain,Tourist attractions,Fountain,10.06711409,LOW
+amenity,shelter,Public Infrastructure,"Shelters (bus, picnics)",4.347826087,LOW
+leisure,sports_centre,Recreation and leisure facilities,Sports center,59.8540146,MED
+building,office,Commercial entities,Office,40.90909091,LOW
+railway,stop,Railway facilities,Railway Stop,100,HIGH
+shop,beauty,Shops,Beauty Shop,96.89922481,HIGH
+tourism,attraction,Tourist attractions,Local Attraction,94.4,HIGH
+historic,memorial,Tourist attractions,Memorial,76.2295082,MED
+shop,storage_rental,Shops,Storage Rental,8.653846154,LOW
+amenity,library,Educational facilities,Library,96.11650485,HIGH
+amenity,parking_space,Streets / bus stops / parking,Parking,1.020408163,LOW
+shop,bakery,Places to eat / drink,Bakery,100,HIGH
+building,mixed_use,Private property,Mixed use building,35.22727273,LOW
+amenity,pharmacy,Health and wellness facilities,Pharmacy,98.85057471,HIGH
+office,company,Commercial entities,Company Office,95.40229885,HIGH
+leisure,fitness_centre,Recreation and leisure facilities,Fitness Centre,96.38554217,HIGH
+tourism,hotel,Commercial entities,Hotel,98.7804878,HIGH
+highway,turning_loop,Streets / bus stops / parking,,0,LOW
+building,warehouse,Private property,Warehouse,42.30769231,LOW
+amenity,atm,Financial facilities,ATM,53.24675325,MED
+amenity,dentist,Health and wellness facilities,Dentist,81.57894737,MED
+shop,alcohol,Shops,Alcohol Shop,96,HIGH
+amenity,pub,Places to eat / drink,Pub,100,HIGH
+building,industrial,Private property,,52.17391304,MED
+shop,dry_cleaning,Shops,Dry cleaning,85.07462687,MED
+building,university,Private property,University Building,100,HIGH
+leisure,nature_reserve,Recreation and leisure facilities,Nature reserve,82.8125,MED
+amenity,theatre,Recreation and leisure facilities,Theatre,90.47619048,HIGH
+leisure,track,Recreation and leisure facilities,Sports track,7.936507937,LOW
+amenity,car_sharing,Commercial entities,Car Sharing Station,95.16129032,HIGH
+railway,abandoned,Railway facilities,Abandoned Railway,100,HIGH
+highway,corridor,Streets / bus stops / parking,,1.639344262,LOW
+amenity,clinic,Health and wellness facilities,Clinic,98.33333333,HIGH
+shop,car,Shops,Car Shop,94.91525424,HIGH
+amenity,community_centre,Public Infrastructure,Community Centre,94.73684211,HIGH
+shop,gift,Shops,Gift Shop,98.24561404,HIGH
+shop,furniture,Shops,Furniture Shop,98.21428571,HIGH
+railway,station,Railway facilities,Railway Station,100,HIGH
+tourism,museum,Tourist attractions,Museum,100,HIGH
+amenity,public_bookcase,Educational facilities,Public Book Case,66.66666667,MED
+amenity,ice_cream,Shops,Ice Cream Shop,98,HIGH
+building,dormitory,Educational facilities,Dormitory,94,HIGH
+shop,laundry,Shops,Laundromat,92,HIGH
+railway,light_rail,Railway facilities,,100,HIGH
+shop,department_store,Shops,Department Store,100,HIGH
+shop,books,Shops,Book Shop,97.91666667,HIGH
+highway,construction,Streets / bus stops / parking,,76.59574468,MED
+shop,mobile_phone,Shops,Mobile Phone Shop,100,HIGH
+historic,tomb,Tourist attractions,Historic Tomb,8.888888889,LOW
+amenity,doctors,Health and wellness facilities,Doctors,93.18181818,HIGH
+building,hospital,Private property,Hospital building,84.09090909,MED
+shop,bicycle,Shops,Bike Shop,100,HIGH
+shop,florist,Shops,Florist,93.02325581,HIGH
+amenity,charging_station,Streets / bus stops / parking,Charging Station,23.80952381,LOW
+amenity,kindergarten,Educational facilities,Kindergarten,95,HIGH
+amenity,bbq,Places to eat / drink,Bbq,0,LOW
+amenity,veterinary,Health and wellness facilities,Vet,87.17948718,MED
+amenity,car_wash,Shops,Car Wash,53.84615385,MED
+building,civic,Private property,Civic building,94.87179487,HIGH
+amenity,bicycle_repair_station,Shops,Bike Repair,94.59459459,HIGH
+shop,copyshop,Shops,Copy shop,97.2972973,HIGH
+amenity,police,Public Infrastructure,Police,94.44444444,HIGH
+highway,elevator,Streets / bus stops / parking,,5.555555556,LOW
+leisure,marina,Recreation and leisure facilities,Marina,91.66666667,HIGH
+amenity,bus_station,Streets / bus stops / parking,Bus Station,97.14285714,HIGH
+building,roof,Private property,Roof,28.57142857,LOW
+craft,brewery,Places to eat / drink,Brewery,100,HIGH
+military,office,Public Infrastructure,Military Office,76.47058824,MED
+shop,jewelry,Shops,Jewelry Shop,100,HIGH
+shop,yes,Shops,Shop (general),100,HIGH
+amenity,marketplace,Commercial entities,Marketplace,96.96969697,HIGH
+leisure,slipway,Recreation and leisure facilities,,9.090909091,LOW
+leisure,dog_park,Recreation and leisure facilities,Dod park,60.60606061,MED
+shop,pet,Shops,Pet shop,93.93939394,HIGH
+man_made,reservoir_covered,Public Infrastructure,Reservoir,93.75,HIGH
+shop,car_parts,Shops,Auto shop,100,HIGH
+shop,doityourself,Shops,DIY shop,100,HIGH
+landuse,commercial,Commercial entities,,100,HIGH
+railway,tram_stop,Railway facilities,Tram stop,100,HIGH
+amenity,college,Educational facilities,College,100,HIGH
+amenity,car_rental,Shops,Car Rental,96.55172414,HIGH
+historic,monument,Tourist attractions,Historic monument,75.86206897,MED
+historic,ruins,Tourist attractions,Historic Ruin,48.27586207,MED
+shop,greengrocer,Shops,Grocery,100,HIGH
+shop,interior_decoration,Shops,Interior décor shop,96.55172414,HIGH
+shop,hardware,Shops,Hardware shop,96.55172414,HIGH
+building,church,Private property,Church,67.85714286,MED
+leisure,common,Recreation and leisure facilities,Land (public access),42.85714286,LOW
+man_made,mast,Public Infrastructure,Mast,3.571428571,LOW
+shop,shoes,Shops,Shoes,100,HIGH
+amenity,university,Educational facilities,University,100,HIGH
+amenity,hospital,Health and wellness facilities,Hospital,88.46153846,MED
+shop,optician,Shops,Glasses (optical),96.15384615,HIGH
+building,college,Educational facilities,College building,100,HIGH
+amenity,cinema,Recreation and leisure facilities,Cinema,95.83333333,HIGH
+building,semidetached_house,Private property,Semidetached building,0,LOW
+leisure,recreation_ground,Recreation and leisure facilities,Ground,16.66666667,LOW
+shop,electronics,Shops,Electronics,100,HIGH
+highway,traffic_signals,Streets / bus stops / parking,Traffic Signal,100,HIGH
+leisure,golf_course,Recreation and leisure facilities,Golf Course,95.65217391,HIGH
+shop,sports,Shops,Sports,95.65217391,HIGH
+building,public,Public Infrastructure,Public Building,86.36363636,MED
+leisure,horse_riding,Recreation and leisure facilities,Horse riding,27.27272727,LOW
+shop,mall,Shops,Mall,63.63636364,MED
+shop,tattoo,Shops,Tattoo shop,95.23809524,HIGH
+amenity,arts_centre,Recreation and leisure facilities,Arts centre,95,HIGH
+leisure,bleachers,Recreation and leisure facilities,Bleachers,0,LOW
+shop,massage,Shops,Massage,65,MED
+highway,proposed,Streets / bus stops / parking,Proposed Street,57.89473684,MED
+railway,crossover,Railway facilities,Crossover,100,HIGH
+shop,deli,Shops,Deli,100,HIGH
+shop,art,Shops,Art shop,100,HIGH
+amenity,comedy,Recreation and leisure facilities,Performance Arts (Comedy),,
+amenity,event,Recreation and leisure facilities,Events venue,,
+amenity,music_venue,Recreation and leisure facilities,Music venue,,
+amenity,nightclub,Recreation and leisure facilities,Nightclub,,
+historic,artwork,Tourist attractions,Artwork,,
+amenity,crematorium,,Crematorium,,
+amenity,events_venue,,Events venue,,
+historic,building,,Historic building,,
+amenity,post_office,,Post Office,,
+building,theatre,,Theatre,,
+shop,garden_centre,,Flower shop,,
+shop,second_hand,,Second hand shop,,
+amenity,childcare,,Nursery (kids),,
+tourism,gallery,,Art gallery,,
+shop,antiques,,Antiques shop,,
+shop,estate_agent,,Real estate agent,,
+office,government,,Government office,,
+amenity,music_school,,Music school,,
+shop,stationery,,Stationery,,
+landuse,cemetery,,Cemetery,,
+office,lawyer,,Lawyer,,
+office,ngo,,NGO,,
+leisure,dance,,Dance venues,,
+office,notary,,Notary,,
+office,university,,University Office,,
+shop,music,,Music shop,,
+shop,toys,,Toy shop,,
+amenity,recycling,,Recycling container,,
+aeroway,helipad,,Helipad,,
+tourism,motel,,Motel,,
