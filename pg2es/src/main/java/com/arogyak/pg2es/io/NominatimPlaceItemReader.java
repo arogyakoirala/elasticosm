@@ -14,8 +14,11 @@ import java.util.Map;
 import java.util.Scanner;
 import javax.sql.DataSource;
 
+
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -62,9 +65,12 @@ public class NominatimPlaceItemReader extends JdbcCursorItemReader<NominatimPlac
 
 	}
 
-//	@Value("${config.amenity_mapping_csv}")
-	private String amenityMappingCsvPath = "categories.csv";
+//	@Value("${pg2es.config.amenity_mapping_csv}")
+    private String amenityMappingCsvPath = "categories.csv";
+	
 
+	
+	
 	@Autowired
 	public NominatimPlaceItemReader(DataSource dataSource) throws FileNotFoundException {
 		this.setSql("select place_id,osm_id, osm_type, class, type, housenumber, "
@@ -75,6 +81,8 @@ public class NominatimPlaceItemReader extends JdbcCursorItemReader<NominatimPlac
 				+ "rank_search, rank_address, " + "admin_level AS admin_level, " + "indexed_date AS indexed_date, "
 				+ "GeometryType(geometry) AS geometry_type,  ST_AsGeoJSON(geometry) AS geometry,"
 				+ "extratags, address " + "FROM placex");
+		
+		System.out.println("This:");
 		this.setRowMapper(new NominatimPlaceRowMapper(getMapFromCSV(amenityMappingCsvPath)));
 //		System.out.println(amenityMappingCsvPath);
 //		this.setRowMapper(new NominatimPlaceRowMapper());
@@ -108,6 +116,7 @@ public class NominatimPlaceItemReader extends JdbcCursorItemReader<NominatimPlac
 //			return jo;
 //		}
 
+		
 		private Map<String, List<String>> mapping;
 		private List<String> acceptableExtraTags;
 

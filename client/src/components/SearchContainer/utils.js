@@ -36,12 +36,12 @@ export const preprocess = (data, userCoords) => {
       try {
         const a = new oh(item.openingHours);
         const isOpen = a.getState();
+
         return { ...item, openingHours: isOpen ? 'Open' : 'Closed' };
       } catch (error) {
         return { ...item, openingHours: 'Not known' };
       }
     }
-
     return {
       ...item,
       openingHours: item.openingHours ? item.openingHours : 'Not applicable',
@@ -53,20 +53,29 @@ export const preprocess = (data, userCoords) => {
     return { openingHours: item.openingHours };
   });
 
-  const newOpeningHourCounts = aq
-    .from(openingHoursData)
-    .groupby('openingHours')
-    .count()
-    .objects();
+  let newOpeningHourAggs;
 
-  const newOpeningHourAggs = newOpeningHourCounts.map((item) => {
-    return {
-      facet: 'openingHours',
-      error: 0,
-      label: item.openingHours,
-      value: item.count,
-    };
-  });
+  console.log('Oley!', openingHoursData);
+  if (openingHoursData.length > 0) {
+    const newOpeningHourCounts = aq
+      .from(openingHoursData)
+      .groupby('openingHours')
+      .count()
+      .objects();
+
+    newOpeningHourAggs = newOpeningHourCounts.map((item) => {
+      return {
+        facet: 'openingHours',
+        error: 0,
+        label: item.openingHours,
+        value: item.count,
+      };
+    });
+  } else {
+    newOpeningHourAggs = [];
+  }
+
+  console.log('Oley', openingHoursData);
 
   // Geodistance aggregations
   const resultsWithDistance = newResults.map((item) => {
@@ -90,20 +99,26 @@ export const preprocess = (data, userCoords) => {
     return { distance: item.distance };
   });
 
-  const newDistanceCounts = aq
-    .from(distanceData)
-    .groupby('distance')
-    .count()
-    .objects();
+  let newDistanceAggs;
 
-  const newDistanceAggs = newDistanceCounts.map((item) => {
-    return {
-      facet: 'distance',
-      error: 0,
-      label: item.distance,
-      value: item.count,
-    };
-  });
+  if (distanceData.length > 0) {
+    const newDistanceCounts = aq
+      .from(distanceData)
+      .groupby('distance')
+      .count()
+      .objects();
+
+    newDistanceAggs = newDistanceCounts.map((item) => {
+      return {
+        facet: 'distance',
+        error: 0,
+        label: item.distance,
+        value: item.count,
+      };
+    });
+  } else {
+    newDistanceAggs = [];
+  }
 
   const newAggs = [
     ...newOpeningHourAggs,

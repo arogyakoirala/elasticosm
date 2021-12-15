@@ -17,15 +17,41 @@ services:
         image: "mediagis/nominatim:3.7"
         env_file: 
             - ./.env_nominatim
-        ports:
-            - "8081:8080"
-            - "5431:5432"
+        # ports:
+        #     - "8081:8080"
+        #     - "5431:5432"
         volumes:
             - ./data-osm/berkeley.osm.pbf:/nominatim/data/berkeley.osm.pbf
-    # client:
-    #     container_name: client
-    #     build:
-    #         context: ./client
-    #         dockerfile: Dockerfile
-    #     ports:
-    #         - 8082:3000
+            # - ./status:/var/lib/postgresql/12/main
+    api:
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        environment:
+            - "ES_HOST=elastic"
+            - "ES_PORT=9200"
+        volumes:
+            - ./api/target/api-0.0.1-SNAPSHOT.jar:/srv/api/app.jar
+            - ./status:/srv/api/status
+        ports:
+            - "8080:8080"
+    pg2es:
+        build:
+            context: ./pg2es
+            dockerfile: Dockerfile
+        environment:
+            - "ES_HOST=elastic"
+            - "ES_PORT=9200"
+            - "PG_HOST=nominatim"
+            - "PG_PORT=5432"
+        volumes:
+            - ./pg2es/target/pg2es-0.0.1-SNAPSHOT.jar:/srv/api/app.jar
+            - ./pg2es/categories.csv:/srv/api/categories.csv
+            - ./status:/var/tmp
+    client:
+        container_name: client
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        ports:
+            - "8082:3000"

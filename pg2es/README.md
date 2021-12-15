@@ -5,5 +5,5 @@ This project is responsible for indexing the postgres based search database used
 ### Build instructions
 
 ```
-mvn clean package -Dmaven.test.skip
+mvn clean package -Dmaven.test.skip=true
 ```

@@ -16,7 +16,7 @@ import org.springframework.data.elasticsearch.annotations.Setting;
 
 
 @Document(indexName = "place", createIndex = true)
-@Setting(settingPath = "indexSettings.json")
+@Setting(settingPath = "settings.json")
 public class NominatimPlace {
 
 	@Id
