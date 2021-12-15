@@ -10,7 +10,7 @@ services:
         restart: always
         environment:
             DOMAINS: 'i202.arogyakoirala.com -> http://api:8080'
-            # STAGE: 'production' # Don't use production until staging works
+            STAGE: 'production' # Don't use production until staging works
             # FORCE_RENEW: 'true'
         volumes: 
             - https-portal-data:/var/lib/https-portal
