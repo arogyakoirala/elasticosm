@@ -7,9 +7,10 @@ services:
             - '443:443'
         links:
             - api
+            - client
         restart: always
         environment:
-            DOMAINS: 'i202.arogyakoirala.com -> http://api:8080'
+            DOMAINS: 'i202-api.arogyakoirala.com -> http://api:8080, i202-client.arogyakoirala.com -> http://client:3000'
             STAGE: 'production' # Don't use production until staging works
             # FORCE_RENEW: 'true'
         volumes: 
@@ -67,7 +68,7 @@ services:
         build:
             context: ./client
             dockerfile: Dockerfile
-        ports:
-            - "8081:3000"
+        # ports:
+        #     - "8081:3000"
 volumes:
     https-portal-data:
