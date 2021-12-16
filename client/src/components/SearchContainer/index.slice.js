@@ -16,13 +16,21 @@ const slice = createSlice({
       right: -122.32405776353889,
       top: 37.917525240169,
     },
+    filtering: false,
     isLoading: false,
     error: false,
   },
   reducers: {
     startLoading: (state) => {
-      console.log('Starting to load bruv');
+      state.filtering = false;
       state.isLoading = true;
+    },
+    startFiltering: (state) => {
+      state.filtering = true;
+      state.isLoading = true;
+    },
+    startQuerying: (state, action) => {
+      state.q = action.payload;
     },
     hasError: (state, action) => {
       state.error = action.payload;
@@ -38,9 +46,9 @@ const slice = createSlice({
       state.bounds = action.payload;
     },
     updateResults: (state, action) => {
-      console.log('Payload', action);
       state.filteredResults = action.payload;
       state.isLoading = false;
+      state.filtering = true;
     },
   },
 });
@@ -54,10 +62,13 @@ export const {
   hasError,
   changeBounds,
   updateResults,
+  startQuerying,
+  startFiltering,
 } = slice.actions;
 
 export const fetchResults = (q, bounds, userCoords) => async dispatch => { //eslint-disable-line
   dispatch(startLoading());
+  dispatch(startQuerying(q));
   try {
     // await api
     //   .get(`/search2`, {
@@ -89,7 +100,7 @@ export const fetchResults = (q, bounds, userCoords) => async dispatch => { //esl
 
 export const filterResults =
   ({ data, filterConfig }) => async dispatch => { //eslint-disable-line
-    dispatch(startLoading());
+    dispatch(startFiltering());
     const updatedResults = filterBasedOnConfig(data, filterConfig);
     console.log('Here in filterResults', updatedResults);
 

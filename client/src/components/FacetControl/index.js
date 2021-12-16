@@ -5,6 +5,20 @@ import * as d3 from 'd3-array';
 import f from 'compose-function';
 import { statement } from '@babel/template';
 
+const labels = {
+  openingHours: 'Is the place open?',
+  wheelChair: 'Wheelchair access?',
+  amenitySubCategory: 'Category',
+  distance: 'How far is it?',
+  internetAccess: 'Internet access?',
+  paymentOptions: 'Payment options',
+  driveThrough: 'Drive through?',
+  delivery: 'Delivery?',
+  diet: 'Diet',
+  cuisine: 'Cuisine',
+  seating: 'Seating',
+};
+
 function FacetControl({ q, results, aggregations, onToggle, isLoading }) {
   const k = Array.from(
     d3.group(aggregations, (d) => d.facet),
@@ -42,7 +56,7 @@ function FacetControl({ q, results, aggregations, onToggle, isLoading }) {
                     textTransform: 'uppercase',
                   }}
                 >
-                  {group.key}
+                  {labels[group.key]}
                 </span>
                 <br />
                 <div>

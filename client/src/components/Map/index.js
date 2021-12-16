@@ -40,6 +40,13 @@ class MapView extends React.Component {
         this.map.removeSource('pois');
       }
 
+      if (this.map.getLayer('point')) {
+        this.map.removeLayer('point');
+      }
+
+      if (this.map.getSource('point')) {
+        this.map.removeSource('point');
+      }
       if (this.props.pois.length > 0) {
         const data = {
           type: 'geojson',
@@ -78,6 +85,44 @@ class MapView extends React.Component {
             ],
             // 'icon-image': ['concat', ['get', 'icon'], '-15'],
           },
+        });
+      }
+
+      if (this.props.coords) {
+        this.map.addSource('point', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [
+                    this.props.coords.longitude,
+                    this.props.coords.latitude,
+                  ],
+                },
+              },
+            ],
+          },
+        });
+
+        // Add a layer to use the image to represent the data.
+        this.map.addLayer({
+          id: 'point',
+          type: 'circle',
+          source: 'point', // reference the data source
+          paint: {
+            'circle-radius': 8,
+            'circle-stroke-width': 2,
+            'circle-color': 'blue',
+            'circle-stroke-color': 'white',
+          },
+          // layout: {
+          //   'icon-image': 'cat', // reference the image
+          //   'icon-size': 0.25,
+          // },
         });
       }
     }
@@ -129,26 +174,59 @@ class MapView extends React.Component {
       <div
         ref={node => this.node = node} //eslint-disable-line
         style={{
-          maxHeight: '100vh',
-          minHeight: '100vh',
+          maxHeight: '87vh',
+          minHeight: '87vh',
+          borderRadius: '5px',
         }}
       >
-        <div
-          style={{
-            position: 'absolute',
-            top: '10px',
-            bottom: '100px',
-            right: '10px',
-            width: '30%',
-            zIndex: 100,
-            padding: '10px',
-            backgroundColor: 'rgba(255,255,255,0.8)',
-            overflowY: 'scroll',
-            borderRadius: '10px',
-          }}
-        >
-          {this.props.children}
+        {(this.props.pois.length > 0 || this.props.filtering) && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '10px',
+              bottom: '100px',
+              right: '10px',
+              width: '30%',
+              zIndex: 100,
+              padding: '10px',
+              backgroundColor: 'rgba(255,255,255,0.8)',
+              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)',
+              overflowY: 'scroll',
+              borderRadius: '3px',
+            }}
+          >
+            {this.props.children}
+          </div>
+        )}
+
+        <div className="legend">
+          <span>
+            <b>Legend</b>
+          </span>
+          <div>
+            <span style={{ 'background-color': 'blue' }}></span>My location
+          </div>
+          <div>
+            <span style={{ 'background-color': 'red' }}></span>Search Results
+          </div>
         </div>
+
+        {this.props.pois.length == 0 &&
+          this.props.q !== null &&
+          !this.props.isLoading &&
+          !this.props.filtering && (
+            <div className="no-results">
+              Your search query <b>{this.props.q}</b> returned no results.
+              Please try a different query.
+            </div>
+          )}
+
+        {!this.props.coords && (
+          <div className="no-results">
+            Location access must be enabled to test out this application. Please
+            provide location access to continue.
+          </div>
+        )}
       </div>
     );
   }

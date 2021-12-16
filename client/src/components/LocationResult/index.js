@@ -5,8 +5,8 @@ import './Style.css';
 
 function LocationResult({ data }) {
   return (
-    <div className="row my-3 ">
-      <div className="col-md-12 ">
+    <div className="row mb-3 ">
+      <div className="col-md-12 pl-0 ">
         <Paper variant="outlined" className="p-3">
           <span>{data.onlyName}</span>
 

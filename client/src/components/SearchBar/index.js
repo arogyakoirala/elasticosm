@@ -21,7 +21,7 @@ function SearchBar({ onSearch, coords }) {
       >
         <InputBase
           sx={{ ml: 1, flex: 1 }}
-          placeholder="Search for a place"
+          placeholder="Search for a place (e.g. cafes, Raleigh's, Target, etc.)"
           inputProps={{ 'aria-label': 'search ' }}
           onChange={(e) => {
             setQ(e.target.value);
@@ -37,10 +37,10 @@ function SearchBar({ onSearch, coords }) {
         >
           <SearchIcon />
         </IconButton>
-        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+        {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
         <IconButton color="primary" sx={{ p: '10px' }} aria-label="info">
           <InfoIcon />
-        </IconButton>
+        </IconButton> */}
       </Paper>
     </div>
   );

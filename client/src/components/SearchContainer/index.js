@@ -16,35 +16,45 @@ import FacetControl from '../FacetControl';
 
 function SearchContainer() {
   const dispatch = useDispatch();
-  const { filteredResults, results, isLoading, bounds, aggregations } =
-    useSelector(selectState).search;
+  const {
+    q,
+    filteredResults,
+    results,
+    isLoading,
+    bounds,
+    aggregations,
+    filtering,
+  } = useSelector(selectState).search;
   return (
     <div className="row m-0">
-      <div
-        className="col-md-3 p-3"
-        style={{ maxHeight: '98vh', overflowY: 'scroll' }}
-      >
+      <div className="col-md-3 py-3 m-0 text-left" style={{}}>
+        <b>ElasticOSM</b>
+        <br />
+        Search for places in Berkeley
+      </div>
+      <div className="col-md-9 p-3">
         <SearchBar
           onSearch={(q, userCoords) => {
             dispatch(fetchResults(q, bounds, userCoords));
           }}
         />
-        <div>
-          {!isLoading &&
-            filteredResults &&
-            filteredResults.length > 0 &&
-            filteredResults.map((item) => {
-              return <LocationResult key={item.placeId} data={item} />;
-            })}
-        </div>
       </div>
-      <div className="col-md-9">
+      <div
+        className={
+          filteredResults && (filteredResults.length > 0 || filtering)
+            ? 'col-md-9'
+            : 'col-md-12'
+        }
+        style={{ transition: '0.5s ease-in' }}
+      >
         <Map
           isLoading={isLoading}
           startBounds={bounds}
           onMovement={(newBounds) => {
             dispatch(changeBounds(newBounds));
           }}
+          filtering={filtering}
+          q={q}
           pois={
             !filteredResults
               ? []
@@ -80,6 +90,21 @@ function SearchContainer() {
             />
           )}
         </Map>
+      </div>
+      <div
+        className={
+          filteredResults && (filteredResults.length > 0 || filtering)
+            ? 'col-md-3'
+            : 'col-md-3 d-none'
+        }
+        style={{ maxHeight: '89vh', overflowY: 'scroll' }}
+      >
+        {!isLoading &&
+          filteredResults &&
+          filteredResults.length > 0 &&
+          filteredResults.map((item) => {
+            return <LocationResult key={item.placeId} data={item} />;
+          })}
       </div>
     </div>
   );
