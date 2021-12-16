@@ -7,7 +7,7 @@ fi
 dockerize \
     -wait tcp://${ES_HOST}:${ES_PORT} \
     -wait tcp://${PG_HOST}:${PG_PORT} \
-    -wait-retry-interval 120s \
+    -wait-retry-interval 900s \
     -timeout 10000s  && \
     java -jar /srv/api/app.jar \
     --spring.datasource.url=jdbc:postgresql://${PG_HOST}:${PG_PORT}/nominatim \
