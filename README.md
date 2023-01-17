@@ -1,7 +1,7 @@
 # ElasticOSM: A reimagining of OpenStreetMap’s search user interface
-----
 
-In this project, I implement an alternative search user interface to the one’s that's currently available for use at the OpenStreetMap website.
+In this project, I implement an alternative search user interface to the one’s that's currently available for use at the [OpenStreetMap website](https://osm.org). This is the official repository my final project submission for INFO 202: Information Organization and Retrieval taught by the amazing Professor Marti Hearst at the UC Berkeley School of Information.
+
 
 ### Background
 ----
