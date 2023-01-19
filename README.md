@@ -28,7 +28,7 @@ The author notes that the very nature of OpenStreetMap being a volunteer driven 
 ### Installation
 ---
 
-Docker must be installed on the system. Afyter that: 
+Docker must be installed on the system. After that: 
 
 ```
 docker-compose up
